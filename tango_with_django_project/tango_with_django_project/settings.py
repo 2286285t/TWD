@@ -18,8 +18,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Builds paths inside the project that find the location of 'templates'
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-print TEMPLATE_DIR
-
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
