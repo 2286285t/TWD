@@ -134,6 +134,7 @@ def register(request):
                    'registered': registered})
 
 def user_login(request):
+    context_dict = {}
     if request.method == 'POST':
 
         username = request.POST.get('username')
@@ -150,7 +151,9 @@ def user_login(request):
         else:
 
             print("Invalide login details: {0}, {1}".format(username, password))
-            return HttpResponse("Invalid login details supplied.")
+            context_dict['bad_details'] = True
+            #return HttpResponse("Invalid login details supplied.")
+            return render(request, 'rango/login.html', context_dict,)
 
     else:
 
@@ -158,7 +161,7 @@ def user_login(request):
 
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return render(request, 'rango/restricted.html')
 
 def user_logout(request):
     logout(request)
